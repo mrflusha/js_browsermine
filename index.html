@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>minemine</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div id="menu">
+		<div id="menu_items" onclick="cpu_only()"><p>Cpu only</p></div>
+		<div id="menu_items" onclick="nv_click()"><p>Nvidia</p></div>
+		<div id="menu_items" onclick="amd_click()"><p>Amd</p></div>
+	</div>
+
+	<div id = "attention">
+		<div id="warning"><p>!</p></div>
+		<div id="attention"><label>Всё что вы делаете, вы делаете на свой страх и риск, <br>автор не несёт ни какой ответсвенности</label></div>
+	</div>
+
+	<div id="inp">
+		<form>
+			<input type="tel" name="" pattern='[0-9]' placeholder="account adress" maxlength="10" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')">
+			<label id = 'cpu_inp'><input type="tel" id = 'cpu_clock' name="" pattern='[0-9]' value="65" placeholder="% cpu 1-99" min="1" max="99" maxlength="2" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')">% of cpu</label>
+			<input id = 'nvidia' type="tel" name="" placeholder="nvidia off" min="1" max="99" maxlength="2" readonly onclick="nv_click()">
+			<input id = 'amd' type="tel" name="" placeholder="amd off" min="0" max="1" maxlength="2" readonly onclick="amd_click()">
+		</form>
+	</div>
+	<div id="buttons">
+		<button>Start</button>
+		<button>Stop</button>
+
+	</div>
+	<input type="color" name="">
+
+</body>
+
+
+<script type="text/javascript">
+	var nvidia = document.getElementById('nvidia');
+	var amd = document.getElementById('amd');
+	var cuda = 0
+	var op_cl = 0
+
+
+
+	function nv_click(){
+		if (nvidia.placeholder === "nvidia off"){
+			cuda = 1
+			nvidia.setAttribute('placeholder','nvidia on')
+		}else{
+			cuda = 0
+			nvidia.setAttribute('placeholder','nvidia off')
+		}
+	}
+
+
+	function amd_click(){
+
+		if (amd.placeholder === "amd off"){
+			op_cl = 1
+			amd.setAttribute('placeholder','amd on')
+		}else{
+			op_cl = 0
+			amd.setAttribute('placeholder','amd off')
+		}
+	}
+
+	function cpu_only(){
+		var cpu_clock = document.getElementById('cpu_clock').value
+		if (cpu_clock == '0' || cpu_clock == '00' || cpu_clock == '') {
+			alert("CPU CLOCK Input can't be 0 or empty")
+
+		}else{
+			amd.setAttribute('placeholder','amd off')
+			nvidia.setAttribute('placeholder','nvidia off')
+			cuda = 0
+			op_cl = 0
+		}
+		console.log(cpu_clock)
+		//cpu_only = cpu_clock 
+	}
+
+</script>
+</html>
