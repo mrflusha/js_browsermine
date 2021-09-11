@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100&display=swap');
+
 
 *{
 	margin: 0;
@@ -41,15 +43,18 @@ body{
 
 #inp form{
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
 	flex-direction: column;
-	margin-right: 2%;
-	margin-left: 2%;
+
 
 }
 #inp input{
 	display: flex;
 	flex-wrap: nowrap;
+	align-items: center;
+	
+	
 }
 
 #inp input::placeholder{
@@ -58,12 +63,12 @@ body{
 }
 #buttons{
 	display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-content: center;
 }
 
 button{
-	background-color: #4CAF50; /* Green */
+	background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -80,11 +85,20 @@ button{
 #cpu_inp{
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+
 }
+
+
+
 #cpu_clock{
-	width: 2%;
+	width: 2vw;
 	min-width: 15px;
+
 }
+
 
 label{
 	-moz-user-select: none;
@@ -94,10 +108,10 @@ label{
 }
 #attention{
 	display: flex;
-	background-color: ;
+
 	color: rgb(217, 130, 130);
 	justify-content: center;
-	align-content: center;
+	align-content: space-around;
 	flex-direction: row;
 	font-size: 1.4 em;
 }
@@ -126,6 +140,10 @@ label{
 	justify-content: center;
 	width: 3%;
 	align-content: center;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 a{
@@ -134,8 +152,33 @@ a{
 }
 
 a:visited {
-	color: #cecece; /* Цвет посещенных ссылок */
+	color: #cecece;
 }
 a:active {
-	color: #ffff00; /* Цвет активных ссылок */
+	color: #ffff00; 
    }
+
+
+
+#output{
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-direction: row;
+
+}
+
+
+#output p{
+	background-color: grey;
+	color: red;
+	border: 1px solid white;
+	font-family: 'Urbanist', sans-serif;
+	min-width: 250px;
+	text-align: center;
+	align-content: center;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
